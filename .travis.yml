@@ -16,3 +16,10 @@ after_success:
   - docker build -t tomweidner103/fib-nginx ./nginx
   - docker build -t tomweidner103/fib-server ./server
   - docker build -t tomweidner103/fib-worker ./worker
+# login to docker cli (docker hub)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# take images and push to dokcer hub
+  - docker push tomweidner103/fib-client
+  - docker push tomweidner103/fib-nginx
+  - docker push tomweidner103/fib-server
+  - docker push tomweidner103/fib-worker
