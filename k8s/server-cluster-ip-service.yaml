@@ -1,0 +1,15 @@
+# This is for setting up the server
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-cluster-ip-service
+spec:
+  type: ClusterIP
+  # same selector in server-deployment.yaml
+  selector:
+    component: server
+  ports:
+    - port: 5000 # how other pods can reach this - this is present in the server api port
+      targetPort: 5000 # target pod port
+
+# --- the three dashes can separate objects so you can add other configs in the same file

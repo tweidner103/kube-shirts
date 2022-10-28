@@ -1,0 +1,14 @@
+# This is for setting up the postgres
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-cluster-ip-service
+spec:
+  type: ClusterIP
+  # same selector in redis-deployment.yaml
+  selector:
+    component: postgres
+  ports:
+    - port: 5432 # how other pods can reach this
+      targetPort: 5432 # target pod port
+

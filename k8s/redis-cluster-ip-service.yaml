@@ -1,0 +1,14 @@
+# This is for setting up the redis
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-cluster-ip-service
+spec:
+  type: ClusterIP
+  # same selector in redis-deployment.yaml
+  selector:
+    component: redis
+  ports:
+    - port: 6379 # how other pods can reach this
+      targetPort: 6379 # target pod port
+

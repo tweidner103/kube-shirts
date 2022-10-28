@@ -1,0 +1,14 @@
+# This is for setting up the client
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-cluster-ip-service
+spec:
+  type: ClusterIP
+  # same selector in client-deployment.yaml
+  selector:
+    component: web
+  ports:
+    - port: 3000 # how other pods can reach this
+      targetPort: 3000 # target pod port
+
