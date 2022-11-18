@@ -14,6 +14,6 @@ docker push tomweidner103/complex-kube-worker:$SHA
 
 kubectl apply -f k8s
 
-kubectl set image deployments/server-deployment server=tomweidner103/complex-kube-server:$SHA
+kubectl set image deployments/server-deployment api=tomweidner103/complex-kube-server:$SHA
 kubectl set image deployments/client-deployment client=tomweidner103/complex-kube-client:$SHA
 kubectl set image deployments/worker-deployment worker=tomweidner103/complex-kube-worker:$SHA
